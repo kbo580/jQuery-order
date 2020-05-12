@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>jQury designBook</title>
+</head>
+<body>
+  <h1>jQueryのメソッド</h1> 
+  <h2>テキストの変更と取得</h2>
+  <dl>
+    <dt>テキストの変更</dt>
+    <dd>
+      <dd>$('h1','p'や'id名','クラス名'など).text('changed!');</dd>
+      <dd>( )内に書きたい文字列を入力する</dd>
+      <dd>&lt;h1>変更前&lt;/h1></dd>
+      <dd class="text-change">&lt;h1><span>changed!</span>&lt;/h1></dd>
+    </dd>
+    <dt>テキストの取得</dt>
+    <dd>$('h1','p'や'id名','クラス名'など).text( );</dd>
+    <dd>( )内を空欄にして取得する</dd>
+    <dd>また取得した文字列をそのまま入れることもできる</dd>
+    <dd> $('p').text($('h1').text( ) );</dd>
+    <dd id="get-text">&ltp>&lt/p></dd>
+  </dl>
+
+  <h2>HTMLの変更と取得</h2>
+  <dl>
+    <dt>HTMLの変更</dt>
+    <dd>
+      <dd>$('h1','p'や'id名','クラス名'など).html(&ltstrong>changed!&lt/strong>);</dd>
+      <dd>( )内に変更したいHTMLを入力する</dd>
+      <dd>変更前</dd>
+      <dd>こんにちは</dd>
+      <dd>$('#change-html').html('&lt;strong>こんばんわ！&lt;/strong>');</dd>
+      <dd>変更後</dd>
+      <dd id="change-html"></dd>
+    </dd>
+    <dt>HTMLの取得</dt>
+    <dd>$('h1','p'や'id名','クラス名'など).html( );</dd>
+    <dd>( )内を空欄にして取得する</dd>
+    <dd>また取得した文字列をそのまま入れることもできる</dd>
+    <dd>変更前</dd>
+    <dd><strong>おはよう</strong></dd>
+    <dd> $('#get-html').html($('#change-html').html( ) );</dd>
+    <dd>変更後</dd>
+    <dd id="get-html"></dd>
+  </dl>
+
+  <h2>HTMLの挿入と移動</h2>
+    <dl>
+      <dt>HTMLの挿入</dt>
+        <ul>
+          <li>prepend( ) ある要素の子要素の先頭に要素を挿入する</li>
+          <li>append( ) ある要素の子要素の先頭に要素を挿入する</li>
+          <li>before( ) 要素を前に挿入する</li>
+          <li>after( ) 要素を後ろに挿入する</li>
+        </ul>
+      <dd>変更前</dd>
+        <ul>
+          <li>list0</li>
+          <li>list1</li>
+          <li>list2</li>
+          <li>list3</li>
+        </ul>
+      <dd>変更後</dd>
+      <ul>
+        <li>$('ul>li:eq(0)').prepend('&lt;strong>これがprepend&lt;/strong>');</li>
+        <li>$('ul>li:eq(3)').append('&lt;strong>これがappend&lt;/strong>');</li>
+        <li>$('ul>li:eq(0)').before('&lt;h2>これはbefore&lt/h2>');</li>
+        <li>$('ul>li:eq(3)').after('&lt;h2>これはafter&lt;/h2>');</li>
+      </ul>
+        <ul id="insert">
+          <li>list0</li>
+          <li>list1</li>
+          <li>list2</li>
+          <li>list3</li>
+        </ul>
+      </dd>
+      <dd>$('〜(場所)に').命令('〜(要素)を')の順番</dd>
+      <dd>新しい要素を作って挿入ができる</dd>
+    </dl>
+
+    <dl>
+      <dt>HTMLの移動</dt>
+        <ul>
+          <li>prependTo( ) ある要素の子要素の先頭に要素を挿入する</li>
+          <li>appendTo( ) ある要素の子要素の先頭に要素を挿入する</li>
+          <li>insertBefore( ) 要素を前に挿入する</li>
+          <li>insertAfter( ) 要素を後ろに挿入する</li>
+        </ul>
+      <dd>変更前</dd>
+      <dd>
+        <h2>&lt;h2>insertBeforeで移動させるもの&lt;/h2></h2>
+        <h2>&lt;h2>insertAfterで移動させるもの&lt;/h2></h2>
+      </dd>
+        <ul>
+          <li>list0</li>
+          <li>list1</li>
+          <li>list2</li>
+          <li>list3</li>
+        </ul>
+        <dd>変更後</dd>
+          <ul>
+            <li>$('&lt;strong>これがprependTo&lt;/strong>').prependTo('ul>li:eq(0)');</li>
+            <li>$('&lt;strong>これがappendTo&lt;/strong>').appendTo('ul>li:eq(3)');</li>
+            <li>$('&lt;h2>').insertBefore('ul>li:eq(0)');</li>
+            <li>$('&lt;h2>').insertAfter('ul>li:eq(3)');</li>
+          </ul>
+        <h2 class="insert-before">insertBeforeで移動させるもの</h2>
+        <h2 class="insert-after">insertAfterで移動させるもの</h2>
+        <ul id="insert-move">
+          <li>list0</li>
+          <li>list1</li>
+          <li>list2</li>
+          <li>list3</li>
+        </ul>
+      </dd>
+      <dd>$('〜(要素)を').命令('〜(場所)に')の順番</dd>
+      <dd>元からあるものを移動</dd>
+    </dl>
+
+    <h2>属性値</h2>
+    <dl>
+      <dt>属性値の変更</dt>
+      <dd id="attribute">
+        <dd>属性値を変更できる</dd>
+        <dd>$('セレクター').attr('属性名','属性値');</dd>
+        <dd>変更前</dd>
+        <dd><a href="http://google.jp" id="google">googleへ</a></dd>
+        <dd>変更後</dd>
+        <dd>$('a').attr('href','yahoo.co.jp');</dd>
+        <dd><a href="http://google.jp" id="change-attribute">googleへ(実際のリンクはgoogleではなくyahoo!になっている)</a></dd>
+      </dd>
+      <dt>属性値の取得</dt>
+      <dd>$('セレクター).attr('属性名');</dd>
+      <dd>( )内に属性名を指定して取得する</dd>
+      <dd>また取得した文字列をそのまま入れることもできる</dd>
+      <dd> $('a').text($('#google').attr( 'href') );</dd>
+      <dd id="get-attribute"></dd>
+    </dl>
+
+    <h2>class属性</h2>
+    <dl>
+      <dt>class属性の追加</dt>
+        <dd>addClass( )を使う事でclassを追加できる</dd>
+        <dd>$('セレクター').addClass('class名');</dd>
+      <dt>class属性の削除</dt>
+      <dd>removeClass( )を使う事でclassを削除できる</dd>
+      <dd>$('セレクター').removeClass('class名');</dd>
+    </dl>
+
+    <h2>CSSプロパティ</h2>
+    <dl>
+      <dt>CSSプロパティの設定</dt>
+        <dd>css("プロパティ名","値")を使うとプロパティの値を変えたり取得できたりする</dd>
+        <dd>変更前</dd>
+        <dd><h3>&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3></dd>
+        <dd>変更後</dd>
+        <dd>$('#change-css').css("color","red");</dd>
+        <dd><h3 id="change-css">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3></dd>
+        <dt>複数のプロパティを変える場合</dt>
+        <dd>$('').css({"プロパティ名" : "値" , <br>&emsp;&emsp;&emsp;&emsp;"プロパティ名" : "値"});と記述する</dd>
+        <dd>※プロパティ名と値の間を : ( コロン )で区切る事と , ( カンマ )で繋げる事に気を付ける</dd>
+        <dd>$('#change-css').css({"color":"red",<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"backgroundColor":"yellow",<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"display":"inline"});</dd>
+        <dd><h3 id="change-css-three">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3></dd>
+      <dt>CSSプロパティの取得</dt>
+      <dd>$('h3').css("color")とやると"h3"のcolorを取得できる(この場合は”red”)</dd>
+    </dl>
+
+    <h2>要素の選択</h2>
+    <dl>
+      <dt>parent( )/children( )</dt>
+      <dd>parent( )は指定した親要素、children( )は指定した子要素</dd>
+      <dt>next( )/prev( )</dt>
+      <dd>next( )は指定した次の要素を、prev( )指定した前の要素を指定する</dd>
+      <dd>$('#main>li:eq(1)').next( ).css('color','green');</dd>
+      <dd>id="main"直下の2番目(eq1)のlistの後ろ</dd>
+      <dd>$('#main>li:eq(2)').prev( ).css('color','skyblue')</dd>
+      <dd>id="main"直下の3番目(eq2)のlistの手前</dd>
+      <dt>siblings( )</dt>
+      <dd>siblings( )は指定した物の兄弟要素を指定する</dd>
+      <dd>$('#sub>li:eq(1)').siblings( ).css('color','orange');</dd>
+      <dd>id="sub"直下のlistの2番目(eq1)の兄弟要素</dd>
+    </dl>
+    <ul id="main"> &lt;ul id="main">
+      <li>&lt;li>item0&lt;/li></li>
+      <li class="item">&lt;li class="item">item1&lt;/li></li>
+      <li class="item">&lt;li class="item">item2&lt;/li></li>
+      <li>&lt;li>3
+        <ul id="sub">&lt;ul id="sub">
+          <li>&lt;li>item3-0&lt;/li></li>
+          <li>&lt;li>item3-1&lt;/li></li>
+          <li class="item">&lt;li class="item">item3-2&lt;/li></li>
+          <li class="item">&lt;li class="item">item3-3&lt;/li></li>
+          <li>&lt;li>item3-4&lt;/li></li>
+        </ul>&lt;/ul>
+       </li>&lt;/li>
+    </ul>&lt;/ul>
+
+    
+
+
+      
+ <script src="js/main.js"></script>
+</body>
+</html>

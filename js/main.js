@@ -17,7 +17,7 @@ $('<strong>これがappendTo</strong>').appendTo('#insert-move>li:eq(3)').css('c
 $('.insert-before').insertBefore('#insert-move>li:eq(0)');
 $('.insert-after').insertAfter('#insert-move>li:eq(3)');
 
-$('#change-attribute').attr('href','yahoo.co.jp').css('color','red');
+$('#change-attribute').attr('href','https://www.yahoo.co.jp/').css('color','red');
 $('#get-attribute').text($('#google').attr('href')).css('color','red');
 $('#change-css').css('color','red');
 $('#change-css-three').css({'color':'red','backgroundColor':'yellow','display':'inline'});
